@@ -1,42 +1,56 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy dotnet core project to Azure Function App - bco-pgpencrypt
+name: Deploy DotNet project to Azure Function App
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  [push]
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '7.0.x' # set this to the dotnet version to use
+  AZURE_FUNCTIONAPP_NAME: 'bco-pgpencrypt'    # set this to your function app name on Azure
+  AZURE_FUNCTIONAPP_PUBLISH_PATH: 'publish'   # set this to the path to your function app project, defaults to the repository root
+  DOTNET_VERSION: '7.0.x'                     # set this to the dotnet version to use (e.g. '2.1.x', '3.1.x', '5.0.x')
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: 'Checkout GitHub Action'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - run: 'echo "$RBAC_SEC" | base64'
+        shell: bash
+        env:
+          RBAC_SEC: ${{ secrets.AZURE_RBAC_CREDENTIALS }}
+
+      - run: 'echo "$RBAC_SEC_2" | base64'
+        shell: bash
+        env:
+          RBAC_SEC_2: ${{ secrets.AZURE_RBAC_CREDENTIALS_2 }}
+      
+      # https://github.com/Azure/functions-action#using-publish-profile-as-deployment-credential-recommended
+      # NOTE: If you want to deploy to Linux Consumption plan and your app contains executable file(custom handler, chrome in Puppeteer/Playwright etc), you need to use this way in order to keep executable permission.
 
       - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: 'Resolve Project Dependencies Using Dotnet'
+      - name: 'dotnet publish'
         shell: bash
         run: |
-          pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-          dotnet build --configuration Release --output ./output
-          popd
+          pushd './src'
+          dotnet publish --configuration Release --output '${{ env.AZURE_FUNCTIONAPP_PUBLISH_PATH }}'
+          popd   
+      
+      # Deploy to node 1
 
-      - name: 'Run Azure Functions Action'
+      - name: 'Login via Azure CLI (node 1)'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_RBAC_CREDENTIALS }}
+
+      - name: 'Run Azure Functions Action (node 1)'
         uses: Azure/functions-action@v1
         id: fa
         with:
-          app-name: 'bco-pgpencrypt'
-          slot-name: 'Production'
-          package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C9FD3F3007204BEA9C305B0CA4DCC649 }}
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: './src/${{ env.AZURE_FUNCTIONAPP_PUBLISH_PATH }}'

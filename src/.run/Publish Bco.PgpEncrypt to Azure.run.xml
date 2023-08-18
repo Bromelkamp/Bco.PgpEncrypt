@@ -13,7 +13,7 @@
     <option name="AZURE_FUNCTION_APP_SERVICE_PLAN_ID" value="/subscriptions/0e6486d3-36db-455c-80ba-eeb36977fc19/resourceGroups/GOapply-rg/providers/Microsoft.Web/serverfarms/ASP-GOapplyrg-8656" />
     <option name="AZURE_FUNCTION_APP_SERVICE_PLAN_NAME" value="appsp-230818171132" />
     <option name="AZURE_FUNCTION_APP_LOCATION" value="eastus" />
-    <option name="AZURE_FUNCTION_APP_PRICING_TIER" value="Y1" />
+    <option name="AZURE_FUNCTION_APP_PRICING_TIER" value="" />
     <option name="AZURE_FUNCTION_APP_OPERATING_SYSTEM" value="LINUX" />
     <option name="AZURE_FUNCTION_APP_RUNTIME" value="dotnet-isolated" />
     <option name="AZURE_FUNCTION_APP_RUNTIMEVERSION" value="~4" />
