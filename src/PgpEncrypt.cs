@@ -21,7 +21,7 @@ public static class PgpEncrypt
         // read keys from environment variables
         
         var publicKeyBase64 =
-            Guard.Against.NullOrEmpty(Environment.GetEnvironmentVariable("pgp-public-key"));
+            Guard.Against.NullOrEmpty(Environment.GetEnvironmentVariable("PGP_PUBLIC_KEY"));
         
         var publicKeyBytes = Convert.FromBase64String(publicKeyBase64);
         var publicKey = Encoding.UTF8.GetString(publicKeyBytes);
