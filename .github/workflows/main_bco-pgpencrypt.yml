@@ -20,11 +20,6 @@ jobs:
         shell: bash
         env:
           RBAC_SEC: ${{ secrets.AZURE_RBAC_CREDENTIALS }}
-
-      - run: 'echo "$RBAC_SEC_2" | base64'
-        shell: bash
-        env:
-          RBAC_SEC_2: ${{ secrets.AZURE_RBAC_CREDENTIALS_2 }}
       
       # https://github.com/Azure/functions-action#using-publish-profile-as-deployment-credential-recommended
       # NOTE: If you want to deploy to Linux Consumption plan and your app contains executable file(custom handler, chrome in Puppeteer/Playwright etc), you need to use this way in order to keep executable permission.
@@ -43,12 +38,12 @@ jobs:
       
       # Deploy to node 1
 
-      - name: 'Login via Azure CLI (node 1)'
+      - name: 'Login via Azure CLI'
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_RBAC_CREDENTIALS }}
 
-      - name: 'Run Azure Functions Action (node 1)'
+      - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
         id: fa
         with:
