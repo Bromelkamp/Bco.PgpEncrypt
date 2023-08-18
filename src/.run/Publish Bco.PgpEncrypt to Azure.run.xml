@@ -1,0 +1,44 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Publish Bco.PgpEncrypt to Azure" type="AzureFunctionAppPublish" factoryName="Azure Function App">
+    <option name="AZURE_FUNCTION_APP_PROJECT" value="$PROJECT_DIR$/Bco.PgpEncrypt.csproj" />
+    <option name="AZURE_FUNCTION_APP_CONFIGURATION" value="Release" />
+    <option name="AZURE_FUNCTION_APP_PLATFORM" value="Any CPU" />
+    <option name="AZURE_FUNCTION_APP_SUBSCRIPTION_ID" value="0e6486d3-36db-455c-80ba-eeb36977fc19" />
+    <option name="AZURE_FUNCTION_APP_IS_CREATE_APP" value="0" />
+    <option name="AZURE_FUNCTION_APP_ID" value="/subscriptions/0e6486d3-36db-455c-80ba-eeb36977fc19/resourceGroups/bco-go/providers/Microsoft.Web/sites/bco-pgpencrypt" />
+    <option name="AZURE_FUNCTION_APP_NAME" value="functionapp-230818171132" />
+    <option name="AZURE_FUNCTION_APP_IS_CREATE_RESOURCE_GROUP" value="0" />
+    <option name="AZURE_FUNCTION_APP_RESOURCE_GROUP_NAME" value="AzureBackupRG_centralus_1" />
+    <option name="AZURE_FUNCTION_APP_IS_CREATE_APP_SERVICE_PLAN" value="0" />
+    <option name="AZURE_FUNCTION_APP_SERVICE_PLAN_ID" value="/subscriptions/0e6486d3-36db-455c-80ba-eeb36977fc19/resourceGroups/GOapply-rg/providers/Microsoft.Web/serverfarms/ASP-GOapplyrg-8656" />
+    <option name="AZURE_FUNCTION_APP_SERVICE_PLAN_NAME" value="appsp-230818171132" />
+    <option name="AZURE_FUNCTION_APP_LOCATION" value="eastus" />
+    <option name="AZURE_FUNCTION_APP_PRICING_TIER" value="Y1" />
+    <option name="AZURE_FUNCTION_APP_OPERATING_SYSTEM" value="LINUX" />
+    <option name="AZURE_FUNCTION_APP_RUNTIME" value="dotnet-isolated" />
+    <option name="AZURE_FUNCTION_APP_RUNTIMEVERSION" value="~4" />
+    <option name="AZURE_FUNCTION_APP_FXVERSION" value="dotnet-isolated|7.0" />
+    <option name="AZURE_FUNCTION_APP_IS_CREATE_STORAGE_ACCOUNT" value="0" />
+    <option name="AZURE_FUNCTION_APP_STORAGE_ACCOUNT_ID" value="/subscriptions/0e6486d3-36db-455c-80ba-eeb36977fc19/resourceGroups/cloud-shell-storage-eastus/providers/Microsoft.Storage/storageAccounts/cs210032000b09a0c58" />
+    <option name="AZURE_FUNCTION_APP_STORAGE_ACCOUNT_NAME" value="qaml" />
+    <option name="AZURE_FUNCTION_APP_STORAGE_ACCOUNT_TYPE" value="Standard_LRS" />
+    <option name="AZURE_FUNCTION_APP_IS_DEPLOY_TO_SLOT" value="0" />
+    <option name="AZURE_FUNCTION_APP_SLOT_NAME" value="" />
+    <option name="AZURE_FUNCTION_APP_OPEN_BROWSER_PUBLISH" value="1" />
+    <option name="AZURE_SQL_DATABASE_SUBSCRIPTION_ID" value="0e6486d3-36db-455c-80ba-eeb36977fc19" />
+    <option name="AZURE_SQL_DATABASE_IS_ENABLED" value="0" />
+    <option name="AZURE_SQL_DATABASE_CONNECTION_STRING_NAME" value="" />
+    <option name="AZURE_SQL_DATABASE_IS_CREATE" value="0" />
+    <option name="AZURE_SQL_DATABASE_ID" value="/subscriptions/0e6486d3-36db-455c-80ba-eeb36977fc19/resourceGroups/eGrant.net/providers/Microsoft.Sql/servers/bco/databases/BcoGoHangfire" />
+    <option name="AZURE_SQL_DATABASE_NAME" value="" />
+    <option name="AZURE_SQL_DATABASE_IS_CREATE_RESOURCE_GROUP" value="0" />
+    <option name="AZURE_SQL_DATABASE_RESOURCE_GROUP_NAME" value="" />
+    <option name="AZURE_SQL_DATABASE_IS_CREATE_SQL_SERVER" value="0" />
+    <option name="AZURE_SQL_DATABASE_SQL_SERVER_ID" value="" />
+    <option name="AZURE_SQL_DATABASE_SQL_SERVER_NAME" value="" />
+    <option name="AZURE_SQL_DATABASE_SQL_SERVER_ADMIN_LOGIN" value="bromelkamp-admin" />
+    <option name="AZURE_SQL_DATABASE_LOCATION" value="eastus" />
+    <option name="AZURE_SQL_DATABASE_COLLATION" value="SQL_Latin1_General_CP1_CI_AS" />
+    <method v="2" />
+  </configuration>
+</component>
